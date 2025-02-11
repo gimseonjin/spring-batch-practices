@@ -6,10 +6,10 @@
  */
 
 plugins {
-    // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
-    alias(libs.plugins.kotlin.jvm)
+    id 'org.jetbrains.kotlin.jvm' version '1.9.25'
+    id 'org.jetbrains.kotlin.plugin.spring' version '1.9.25'
+    id 'org.jetbrains.kotlin.plugin.jpa' version '1.9.25'
 
-    // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
 }
 
@@ -34,8 +34,13 @@ dependencies {
     implementation 'org.springframework.batch:spring-batch-infrastructure:5.2.0'
 
     implementation 'org.springframework.boot:spring-boot-starter:3.4.2'
+    implementation 'org.springframework.boot:spring-boot-starter-quartz:3.4.2'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.4.2'
 
-    implementation 'org.hsqldb:hsqldb:2.7.4'
+    implementation 'org.apache.httpcomponents.client5:httpclient5:5.4.2'
+    implementation 'com.mysql:mysql-connector-j:8.2.0'
+
+    implementation 'org.jetbrains.kotlin:kotlin-reflect'
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
