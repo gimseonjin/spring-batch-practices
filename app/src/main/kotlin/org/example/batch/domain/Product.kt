@@ -10,7 +10,18 @@ class Product(
     var name: String,
     var price: Int,
     var type: String
-)
+) {
+    companion object {
+        fun from(productVo: ProductVo): Product {
+            return Product(
+                id = productVo.id!!,
+                name = productVo.name!!,
+                price = productVo.price!!,
+                type = productVo.type!!
+            )
+        }
+    }
+}
 
 data class ProductVo(
     var id: Long? = null,

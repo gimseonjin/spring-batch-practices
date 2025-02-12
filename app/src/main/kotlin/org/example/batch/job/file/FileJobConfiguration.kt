@@ -43,7 +43,7 @@ class FileJobConfiguration {
         fileItemProcessor: FileItemProcessor,
         fileItemWriter: ItemWriter<Product>
     ): Step = StepBuilder("fileStep", jobRepository)
-        .chunk<ProductVo, Product>(1, transactionManager)
+        .chunk<ProductVo, Product>(100, transactionManager)
         .reader(fileItemReader)
         .processor(fileItemProcessor)
         .writer(fileItemWriter)
